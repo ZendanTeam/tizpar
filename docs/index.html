@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تیزپر (Tizpar) — مستندات</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg: #0f172a;
+            --surface: #1e293b;
+            --text: #e2e8f0;
+            --accent: #06b6d4;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1, h2, h3 { color: var(--accent); }
+        h1 { font-size: 2.5rem; margin-bottom: 1rem; text-align: center; }
+        h2 { font-size: 1.8rem; margin-top: 2rem; border-bottom: 2px solid var(--surface); padding-bottom: 0.5rem; }
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            margin: 0.25rem;
+        }
+        .badge-blue { background: #1d4ed8; color: white; }
+        .badge-green { background: #15803d; color: white; }
+        .badge-yellow { background: #a16207; color: white; }
+        code {
+            background: var(--surface);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            direction: ltr;
+            display: inline-block;
+        }
+        pre {
+            background: var(--surface);
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            direction: ltr;
+        }
+        .container { background: var(--surface); padding: 2rem; border-radius: 12px; margin: 1rem 0; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .card {
+            background: var(--bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #334155;
+        }
+        .card h3 { margin-bottom: 0.5rem; }
+        .header { text-align: center; padding: 3rem 0; }
+        .header .subtitle { font-size: 1.2rem; color: #94a3b8; margin-top: 0.5rem; }
+        .emoji { font-size: 3rem; }
+        footer { text-align: center; margin-top: 3rem; padding: 1rem; color: #64748b; font-size: 0.9rem; }
+        @media (max-width: 600px) {
+            .grid { grid-template-columns: 1fr; }
+            body { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="emoji">⚡</div>
+        <h1>تیزپر (Tizpar)</h1>
+        <div class="subtitle">Swift Persian Developer Toolkit — ابزارک توسعه‌دهنده فارسی</div>
+        <div style="margin-top: 1rem;">
+            <span class="badge badge-blue">v0.0.1</span>
+            <span class="badge badge-green">Python 3.10+</span>
+            <span class="badge badge-yellow">MIT License</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>📋 معرفی</h2>
+        <p>
+            تیزپر یک ابزارک توسعه‌دهنده فارسی است که ابزارهای مفید و کاربردی را برای 
+            توسعه‌دهندگان ایرانی و فارسی زبان فراهم می‌کند. با تیزپر می‌توانید 
+            به راحتی اعداد را تبدیل کنید، متن فارسی را تشخیص دهید، اطلاعات سیستم را 
+            مشاهده کنید و کلی کار مفید دیگر انجام دهید.
+        </p>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <h3>📝 فارسی</h3>
+            <p>تبدیل اعداد، تشخیص متن فارسی، حذف اعراب</p>
+            <code>tizpar persian to-persian 123</code>
+        </div>
+        <div class="card">
+            <h3>💻 سیستم</h3>
+            <p>اطلاعات سیستم، CPU، حافظه، دیسک</p>
+            <code>tizpar system info</code>
+        </div>
+        <div class="card">
+            <h3>🌐 شبکه</h3>
+            <p>IP عمومی، بررسی URL، پینگ</p>
+            <code>tizpar network ip</code>
+        </div>
+        <div class="card">
+            <h3>🔄 تبدیل</h3>
+            <p>JSON↔YAML، Base64</p>
+            <code>tizpar convert json2yaml '{}'</code>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>📦 نصب</h2>
+        <pre>pip install git+https://github.com/ZendanTeam/tizpar.git</pre>
+        <p>یا از روی سورس:</p>
+        <pre>git clone https://github.com/ZendanTeam/tizpar.git
+cd tizpar
+pip install -e .</pre>
+    </div>
+
+    <div class="container">
+        <h2>🚀 شروع سریع</h2>
+        <pre># نمایش نسخه
+tizpar --version
+
+# تبدیل اعداد
+tizpar persian to-persian "Hello 123"
+# خروجی: Hello ۱۲۳
+
+# بررسی سیستم
+tizpar system info
+
+# مشاهده IP
+tizpar network ip</pre>
+    </div>
+
+    <div class="container">
+        <h2>🧪 تست</h2>
+        <pre>pip install pytest pytest-cov
+pytest -v --cov=src/tizpar</pre>
+    </div>
+
+    <footer>
+        ساخته شده با ❤️ در ZendanTeam<br>
+        تحت مجوز MIT
+    </footer>
+</body>
+</html>

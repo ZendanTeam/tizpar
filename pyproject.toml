@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel>=0.41"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tizpar"
+version = "0.0.1"
+description = "تیزپر - A Swift & Full Persian Developer Toolkit / ابزارک توسعه‌دهنده فارسی سریع و کامل"
+readme = "README.md"
+authors = [
+    { name = "ZendanTeam", email = "zendanteam@arena.ai" }
+]
+license = { text = "MIT" }
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+    "Natural Language :: Persian",
+    "Natural Language :: English",
+]
+keywords = ["persian", "farsi", "utilities", "toolkit", "developer-tools", "تیزپر"]
+requires-python = ">=3.10"
+dependencies = [
+    "click>=8.1.0",
+    "rich>=13.0.0",
+    "requests>=2.31.0",
+    "python-dateutil>=2.8.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/ZendanTeam/tizpar"
+Repository = "https://github.com/ZendanTeam/tizpar.git"
+Issues = "https://github.com/ZendanTeam/tizpar/issues"
+Documentation = "https://github.com/ZendanTeam/tizpar#readme"
+
+[project.scripts]
+tizpar = "tizpar.cli.main:cli"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["tizpar", "tizpar.*"]
+
+[tool.setuptools.package-data]
+"tizpar" = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-v --tb=short"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+ignore_missing_imports = true
